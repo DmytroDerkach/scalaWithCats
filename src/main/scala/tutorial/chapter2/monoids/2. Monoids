@@ -1,0 +1,21 @@
+Formally, a monoid for a type A is:
+• an operation combine with type (A,A)=>A
+• an element empty of type A
+
+trait Monoid[A] {
+  def combine(x: A, y: A): A
+  def empty: A
+}
+
+Monoids must formally obey several laws.
+For all values x, y, and z, in A, combine must be associative and empty must be an identity element:
+
+def associativeLaw[A](x: A, y: A, z: A)
+      (implicit m: Monoid[A]): Boolean = {
+m.combine(x, m.combine(y, z)) == m.combine(m.combine(x, y), z)
+}
+
+def identityLaw[A](x: A)
+      (implicit m: Monoid[A]): Boolean = {
+(m.combine(x, m.empty) == x) && (m.combine(m.empty, x) == x)
+}

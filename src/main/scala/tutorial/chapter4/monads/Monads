@@ -1,0 +1,14 @@
+Informally, a monad is anything with a constructor and a flatMap method.
+
+"A monad is a mechanism for sequencing computations."
+
+monadic behaviour is formally captured in two operations:
+• pure, of type A => F[A];
+• flatMap1, of type (F[A], A => F[B]) => F[B].
+
+Here is a simplified version of the Monad type class in Cats:
+
+trait Monad[F[_]] {
+def pure[A](value: A): F[A]
+  def flatMap[A, B](value: F[A])(func: A => F[B]): F[B]
+}

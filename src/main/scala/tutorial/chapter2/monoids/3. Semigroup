@@ -1,0 +1,12 @@
+A semigroup is just the combine part of a monoid, without the empty part.
+
+A more accurate (though still simplified) definition of Cats’ Monoid is:
+
+
+trait Semigroup[A] {
+  def combine(x: A, y: A): A
+}
+
+trait Monoid[A] extends Semigroup[A] {
+  def empty: A
+}

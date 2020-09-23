@@ -1,0 +1,15 @@
+Informally, a functor is anything with a map method.
+
+It turns out that single argument functions are also functors.
+Calling map doesn’t actually run any of the oper‐ ations,
+but if we can pass an argument to the final function all of the operations are run in sequence.
+ We can think of this as lazily queueing up operations sim‐ ilar to Future:
+
+ val func =
+ ((x: Int) => x.toDouble).
+ map(x => x + 1). map(x => x * 2). map(x => s"${x}!")
+ func(123)
+ // res6: String = "248.0!"
+
+
+ Formally, a functor is a type F[A] with an operation map with type (A => B) => F[B].
