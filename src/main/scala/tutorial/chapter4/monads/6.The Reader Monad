@@ -1,0 +1,13 @@
+cats.data.Reader is a monad that allows us to sequence operations that depend on some input.
+Instances of Reader wrap up functions of one argument, providing us with useful methods for composing them.
+
+Readers provide a tool for doing dependency injection.
+We write steps of our program as instances of Reader, chain them together with map and flatMap,
+and build a function that accepts the dependency as input.
+There are many ways of implementing dependency injection in Scala,
+from simple techniques like methods with multiple parameter lists, through implicit parameters and type classes,
+to complex techniques like the cake pattern and DI frameworks.
+Readers are most useful in situations where:
+• we are constructing a program that can easily be represented by a funtion;
+• we need to defer injection of a known parameter or set of parameters;
+• we want to be able to test parts of the program in isolation.

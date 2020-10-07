@@ -1,0 +1,17 @@
+The monad type class is cats.Monad (https://typelevel.org/cats/api/cats/Monad.html)
+
+Monad extends two other type classes: FlatMap, which provides the flatMap method, and Applicative, which provides pure & map.
+
+Cats provides instances for all the monads in the standard library (Option, List, Vector and so on) via cats.instances
+
+The Identity Monad: Id allows us to call our monadic method using plain values.
+type Id[A] = A
+Id is actually a type alias that turns an atomic type into a single‐parameter type constructor.
+ We can cast any value of any type to a corresponding Id:
+
+ "Dave" : Id[String]
+ // res2: Id[String] = "Dave"
+ 123 : Id[Int]
+ // res3: Id[Int] = 123
+ List(1, 2, 3) : Id[List[Int]]
+ // res4: Id[List[Int]] = List(1, 2, 3)

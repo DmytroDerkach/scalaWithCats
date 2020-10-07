@@ -1,0 +1,11 @@
+cats.Eval is a monad that allows us to abstract over different models of evaluation.
+We typically talk of two such models: eager and lazy, also called call‐by‐value and call‐by‐name respectively.
+Eval also allows for a result to be memoized, which gives us call‐by‐need evaluation.
+Eval is also stack‐safe, which means we can use it in very deep recursions without blowing up the stack.
+
+
+Eval as a Monad
+
+Like all monads, Eval's map and flatMap methods add computations to a chain.
+In this case, however, the chain is stored explicitly as a list of functions.
+The functions aren’t run until we call Eval's value method to request a result

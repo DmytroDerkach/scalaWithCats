@@ -1,0 +1,7 @@
+cats.data.Writer is a monad that lets us carry a log along with a computation.
+We can use it to record messages, errors, or additional data about a computation,
+and extract the log alongside the final result.
+
+With Writer the log for the computation is tied to the result, so we can run concurrent computations without mixing logs.
+
+A Writer[W, A] carries two values: a log of type W and a result of type A. We can create a Writer from values of each type

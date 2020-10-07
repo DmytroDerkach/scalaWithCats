@@ -1,0 +1,14 @@
+cats.data.State allows us to pass additional state around as part of a computation.
+We define State instances representing atomic state operations and thread them together using map and flatMap.
+In this way we can model mutable state in a purely functional way, without using actual mutation.
+
+instances of State[S, A] represent functions of typeS => (S, A).Sis the type of the state andAis the type of the result.
+
+
+The general model for using the State monad is to represent each step of a computation
+as an instance and compose the steps using the standard monad operators.
+Cats provides several convenience constructors for creating primitive steps:
+• get extracts the state as the result;
+• set updates the state and returns unit as the result;
+• pure ignores the state and returns a supplied result;
+• inspect extracts the state via a transformation function; • modify updates the state using an update function.
