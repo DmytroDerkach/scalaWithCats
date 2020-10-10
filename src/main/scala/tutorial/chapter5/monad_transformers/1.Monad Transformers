@@ -1,0 +1,21 @@
+Cats provides transformers for many monads, each named with a T suffix:
+ EitherT composes Either with other monads, OptionT composes Option, and so on.
+
+ We can use OptionT[List, A], aliased to ListOption[A] for convenience, to trans‐ form a List[Option[A]] into a single monad.
+
+ Each monad transformer is a data type, defined in cats.data, that allows us to wrap stacks of monads to produce new monads.
+
+ The main concepts we have to cover to
+ understand monad transformers are:
+ • the available transformer classes;
+ • how to build stacks of monads using transformers;
+ • how to construct instances of a monad stack;
+ • how to pull apart a stack to access the wrapped monads.
+
+
+ • cats.data.OptionT for Option;
+ • cats.data.EitherT for Either;
+ • cats.data.ReaderT for Reader;
+ • cats.data.WriterT for Writer;
+ • cats.data.StateT for State;
+ • cats.data.IdT for the Id monad.

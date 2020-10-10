@@ -1,0 +1,10 @@
+cats.Semigroupal is a type class that allows us to combine contexts.
+If we have two objects of type F[A] and F[B], a Semigroupal[F] allows us to combine them to form an F[(A, B)].
+Its definition in Cats is:
+
+trait Semigroupal[F[_]] {
+    def product[A, B](fa: F[A], fb: F[B]): F[(A, B)]
+}
+
+There is only one law for Semigroupal: the product method must be associative.
+product(a, product(b, c)) == product(product(a, b), c)

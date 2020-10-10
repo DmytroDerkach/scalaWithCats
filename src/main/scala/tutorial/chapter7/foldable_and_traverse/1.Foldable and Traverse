@@ -1,0 +1,11 @@
+Foldable abstracts the familiar foldLeft and foldRight operations;
+Traverse is a higher‐level abstraction that uses Applicatives to iterate with less pain than folding.
+
+Foldable
+The Foldable type class captures the foldLeft and foldRight methods we’re used to in sequences like
+Lists, Vectors, and Streams. Using Foldable, we can write generic folds that work with a variety of sequence types.
+We can also invent new sequences and plug them into our code.
+Foldable gives us great use cases for Monoids and the Eval monad.
+
+foldLeft traverses from “left” to “right” (start to finish);
+foldRight traverses from “right” to “left” (finish to start).
